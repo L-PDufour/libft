@@ -1,50 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldufour <ldufour@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 08:23:35 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/14 09:54:11 by ldufour          ###   ########.fr       */
+/*   Created: 2023/02/14 09:51:42 by ldufour           #+#    #+#             */
+/*   Updated: 2023/02/14 10:54:47 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s);
-
-char	*ft_strcat(char *dest, const char *src)
+int	ft_atoi(const char *nptr)
 {
-	size_t	dest_len;
-	size_t	i;
+	int	result;
+	int	sign;
 
-	dest_len = ft_strlen(dest);
-	i = 0;
-	while (src[i] != '\0')
+	result = 0;
+	sign = 1;
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == 45)
+			sign *= -1;
+		nptr++;
+	while (*nptr <= 48 && *nptr >= 59)
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+	result = result * 10 + (*nptr - 48);
+	nptr++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	return (result * sign);
 }
 
 // #include <stdio.h>
 // int main()
 // {
-//     char s1[] = "12345";
-//     char s2[] = "6789";
-//     ft_strcat(s2, s1);
-//     printf("%s\n", s2);
+// 	printf("%i\n", ft_atoi(" 				+-12asdfasd"));
+// 	printf("%i\n", atoi(" 					+-12asdfasdf"));
 // }
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
