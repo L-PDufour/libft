@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 08:36:54 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/16 13:50:23 by ldufour          ###   ########.fr       */
+/*   Created: 2023/02/16 13:42:51 by ldufour           #+#    #+#             */
+/*   Updated: 2023/02/16 14:21:52 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char * restrict dest, const char * restrict src, size_t size)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	len;
-	size_t	destlen;
+	char	*c;
+	size_t	i;
 
-	len = 0;
-	destlen = 0;
-	while (src[len] != '\0')
+	c = s;
+	i = 0;
+	while (c[i] > n)
 	{
-		if (size && (len < (size - 1)))
-		{
-			dest[len] = src[len];
-			destlen++;
-		}
-		len++;
+		c[i] = '\0';
+		i++;
 	}
-	dest[destlen] = '\0';
-	return (len);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char a[50] = "test";
+// 	puts(a);
+// 	ft_bzero(a, 2);
+//     puts(a);
+// } 

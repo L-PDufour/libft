@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldufour <ldufour@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:23:35 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/14 09:54:11 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:48:05 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s);
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *restrict dest, const char *restrict src)
 {
 	size_t	dest_len;
 	size_t	i;
