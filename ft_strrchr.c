@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 15:57:15 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 14:06:56 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 09:03:59 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 09:45:27 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*a;
-	size_t	i;
+	char	*temp;
 
-	i = 0;
-	a = b;
-	while (a[i] > len)
+	temp = NULL;
+	while (*s != '\0')
 	{
-		a[i] = (unsigned char)c;
-		i++;
+		if (*s == c)
+		{
+			temp = (char *)s;
+		}
+		s++;
 	}
-	a[i] = '\0';
-	return (b);
+	return (temp);
 }
 
-// #include <string.h>
-// #include <stdio.h>
-// int main()
+// int main ()
 // {
-// 	char str[50];
-// 	strcpy(str, "test");
-// 	puts(str);
-// 	ft_memset(str, 'a', 7);
-// 	puts(str);
-// 	return(0);
+//    const char str[] = "Ceci est un ceci testitos";
+//    const char ch = 'i';
+//    char *p;
+//    p = ft_strrchr(str, ch);
+//    printf("String starting from %c is: %s\n", ch, p);
+//    return (0);
 // }

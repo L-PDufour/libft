@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:08:05 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/16 15:19:34 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/17 14:07:31 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	const   char	*s;
-	char	*d;
+	size_t		i;
+	const char	*s;
+	char		*d;
 
 	s = src;
 	d = dst;
@@ -33,10 +33,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // {
 // 	char dest[] = "oldstring";
 // 	const char src[] = "newstring";
-
 // 	printf("Before memmove dest = %s, src = %s\n", dest, src);
 // 	ft_memmove(dest, src, 9);
 // 	printf("After memmove dest = %s, src = %s\n", dest, src);
-
 // 	return (0);
 // }

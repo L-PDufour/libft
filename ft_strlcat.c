@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 08:35:50 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/16 13:49:36 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/17 14:05:28 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
@@ -23,14 +22,14 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcat(char * restrict dest, const char * restrict src, size_t size)
+size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 {
 	size_t	dest_len;
 	size_t	i;
 
 	dest_len = ft_strlen(dest);
 	i = 0;
-	while (src[i] != '\0' && i < size )
+	while (src[i] != '\0' && i < size)
 	{
 		dest[dest_len + i] = src[i];
 		i++;
@@ -39,11 +38,11 @@ size_t	ft_strlcat(char * restrict dest, const char * restrict src, size_t size)
 	return (dest_len);
 }
 
-#include <stdio.h>
-int main()
-{
-    char s1[] = "12345";
-    char s2[] = "6789";
-    ft_strlcat(s2, s1, 1);
-    printf("%s\n", s2);
-}
+// #include <stdio.h>
+// int main()
+// {
+//     char s1[] = "12345";
+//     char s2[] = "6789";
+//     ft_strlcat(s2, s1, 1);
+//     printf("%s\n", s2);
+// }

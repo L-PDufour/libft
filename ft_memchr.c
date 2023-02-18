@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 15:57:15 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 14:06:56 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 09:46:21 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 10:08:45 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*a;
 	size_t	i;
+	char	*str;
 
+	str = (char *)s;
 	i = 0;
-	a = b;
-	while (a[i] > len)
+	while (str[i] != '\0' || i < n)
 	{
-		a[i] = (unsigned char)c;
+		if (*str == c)
+		{
+			return (str);
+		}
 		i++;
 	}
-	a[i] = '\0';
-	return (b);
+	return (str);
 }
 
-// #include <string.h>
-// #include <stdio.h>
-// int main()
-// {
-// 	char str[50];
-// 	strcpy(str, "test");
-// 	puts(str);
-// 	ft_memset(str, 'a', 7);
-// 	puts(str);
-// 	return(0);
+// int main () {
+//    const char str[] = "http://www.tutorialspoint.com";
+//    const char ch = '	';
+//    char *ret;
+
+//    ret = memchr(str, ch, strlen(str));
+
+//    printf("String after |%c| is - |%s|\n", ch, ret);
+
+//    return(0);
 // }

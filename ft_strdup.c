@@ -1,41 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 15:57:15 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 14:06:56 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 13:49:00 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 14:14:39 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strdup(const char *s)
 {
-	char	*a;
 	size_t	i;
+	size_t	len;
+	char	*ptr;
 
-	i = 0;
-	a = b;
-	while (a[i] > len)
+	ptr = NULL;
+	len = 0;
+	while (s[len])
 	{
-		a[i] = (unsigned char)c;
+		len++;
+	}
+	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (s[i])
+	{
+		ptr[i] = s[i];
 		i++;
 	}
-	a[i] = '\0';
-	return (b);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
-// #include <string.h>
-// #include <stdio.h>
 // int main()
 // {
-// 	char str[50];
-// 	strcpy(str, "test");
-// 	puts(str);
-// 	ft_memset(str, 'a', 7);
-// 	puts(str);
-// 	return(0);
+//     char source[] = "		";
+//     char* target = ft_strdup(source);
+
+//     printf("%s", target);
+//     return (0);
 // }
