@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 08:36:54 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 14:07:11 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 09:03:59 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 09:45:27 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
-	size_t	destlen;
+	char	*temp;
 
-	len = 0;
-	destlen = 0;
-	while (src[len] != '\0')
+	temp = NULL;
+	while (*s != '\0')
 	{
-		if (size && (len < (size - 1)))
+		if (*s == c)
 		{
-			dest[len] = src[len];
-			destlen++;
+			temp = (char *)s;
 		}
-		len++;
+		s++;
 	}
-	dest[destlen] = '\0';
-	return (len);
+	return (temp);
 }
+
+// int main ()
+// {
+//    const char str[] = "Ceci est un ceci testitos";
+//    const char ch = 'i';
+//    char *p;
+//    p = ft_strrchr(str, ch);
+//    printf("String starting from %c is: %s\n", ch, p);
+//    return (0);
+// }

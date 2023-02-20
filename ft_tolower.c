@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldufour <ldufour@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:24:42 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/14 09:52:50 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/20 10:27:54 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c += 32;

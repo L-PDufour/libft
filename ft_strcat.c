@@ -6,13 +6,11 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:23:35 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/16 13:48:05 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/20 11:20:35 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strcat(char *restrict dest, const char *restrict src)
 {
@@ -39,12 +37,3 @@ char	*ft_strcat(char *restrict dest, const char *restrict src)
 //     printf("%s\n", s2);
 // }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}

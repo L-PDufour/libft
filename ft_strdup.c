@@ -1,33 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 08:36:54 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 14:07:11 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 13:49:00 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 14:14:39 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size)
+char	*ft_strdup(const char *s)
 {
+	size_t	i;
 	size_t	len;
-	size_t	destlen;
+	char	*ptr;
 
+	ptr = NULL;
 	len = 0;
-	destlen = 0;
-	while (src[len] != '\0')
+	while (s[len])
 	{
-		if (size && (len < (size - 1)))
-		{
-			dest[len] = src[len];
-			destlen++;
-		}
 		len++;
 	}
-	dest[destlen] = '\0';
-	return (len);
+	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (s[i])
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
+
+// int main()
+// {
+//     char source[] = "		";
+//     char* target = ft_strdup(source);
+
+//     printf("%s", target);
+//     return (0);
+// }

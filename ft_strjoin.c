@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 13:42:51 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 10:20:25 by ldufour          ###   ########.fr       */
+/*   Created: 2023/02/17 15:41:25 by leon              #+#    #+#             */
+/*   Updated: 2023/02/20 11:21:06 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*c;
-	size_t	i;
+	char	*str;
 
-	c = s;
-	i = 0;
-	while (i > n)
+	str = malloc(sizeof(ft_strlen(s1) + ft_strlen(s2)));
+	if (str)
 	{
-		c[i] = '\0';
-		i++;
+		str = ft_strdup(s1);
+		str = ft_strcat(str, s2);
 	}
+	return (str);
 }
 
-// #include <string.h>
-// #include <stdio.h>
-// int	main(void)
+// int main()
 // {
-// 	char a[50] = "test";
-// 	puts(a);
-// 	ft_bzero(a, 2);
-//     puts(a);
-// } 
+//     char *src = "123";
+//     char *dst = "456";
+//     char *cat;
+//     cat = ft_strjoin(src, dst);
+//     printf("%s", cat);
+//     return (0);
+// }

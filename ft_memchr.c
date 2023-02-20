@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 15:18:19 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 09:02:41 by leon             ###   ########.fr       */
+/*   Created: 2023/02/17 09:46:21 by leon              #+#    #+#             */
+/*   Updated: 2023/02/17 10:08:45 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,32 @@
 // #include <stdio.h>
 // #include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*s != '\0')
+	size_t	i;
+	char	*str;
+
+	str = (char *)s;
+	i = 0;
+	while (str[i] != '\0' || i < n)
 	{
-		if (*s == c)
+		if (*str == c)
 		{
-			return ((char *)s);
+			return (str);
 		}
-		s++;
+		i++;
 	}
-	return (NULL);
+	return (str);
 }
 
-// int main ()
-// {
-//    const char str[] = "This is just a String";
-//    const char ch = 'u';
-//    char *p;
-//    p = ft_strchr(str, ch);
-//    printf("String starting from %c is: %s\n", ch, p);
-//    return (0);
+// int main () {
+//    const char str[] = "http://www.tutorialspoint.com";
+//    const char ch = '	';
+//    char *ret;
+
+//    ret = memchr(str, ch, strlen(str));
+
+//    printf("String after |%c| is - |%s|\n", ch, ret);
+
+//    return(0);
 // }
