@@ -3,43 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:46:21 by leon              #+#    #+#             */
-/*   Updated: 2023/02/17 10:08:45 by leon             ###   ########.fr       */
+/*   Updated: 2023/02/20 14:16:50 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	char	*str;
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	*needle;
 
-	str = (char *)s;
+	needle = NULL;
+	str = (unsigned char *) s;
 	i = 0;
-	while (str[i] != '\0' || i < n)
+	while (s != NULL && i < n)
 	{
-		if (*str == c)
+		if (*str != (unsigned char)c)
+			str++;
+		else
 		{
-			return (str);
+			needle = str;
+			break ;
 		}
 		i++;
 	}
-	return (str);
+	return (needle);
 }
-
-// int main () {
-//    const char str[] = "http://www.tutorialspoint.com";
-//    const char ch = '	';
-//    char *ret;
-
-//    ret = memchr(str, ch, strlen(str));
-
-//    printf("String after |%c| is - |%s|\n", ch, ret);
-
-//    return(0);
-// }

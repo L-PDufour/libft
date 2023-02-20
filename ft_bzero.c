@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:42:51 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 10:20:25 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/20 13:25:42 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,9 @@ void	ft_bzero(void *s, size_t n)
 
 	c = s;
 	i = 0;
-	while (i > n)
+	while (i < n)
 	{
 		c[i] = '\0';
 		i++;
 	}
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char a[50] = "test";
-// 	puts(a);
-// 	ft_bzero(a, 2);
-//     puts(a);
-// } 

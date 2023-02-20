@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:19 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/17 09:02:41 by leon             ###   ########.fr       */
+/*   Updated: 2023/02/20 15:10:45 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include <string.h>
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
+	while (*s)
 	{
 		if (*s == c)
 		{
@@ -24,15 +22,5 @@ char	*ft_strchr(const char *s, int c)
 		}
 		s++;
 	}
-	return (NULL);
+	return ((char *)s);
 }
-
-// int main ()
-// {
-//    const char str[] = "This is just a String";
-//    const char ch = 'u';
-//    char *p;
-//    p = ft_strchr(str, ch);
-//    printf("String starting from %c is: %s\n", ch, p);
-//    return (0);
-// }

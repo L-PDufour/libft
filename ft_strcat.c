@@ -6,34 +6,24 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:23:35 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 11:20:35 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/20 14:28:49 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict dest, const char *restrict src)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t	dest_len;
+	size_t	s1_len;
 	size_t	i;
 
-	dest_len = ft_strlen(dest);
+	s1_len = ft_strlen(s1);
 	i = 0;
-	while (src[i] != '\0')
+	while (s2[i] != '\0')
 	{
-		dest[dest_len + i] = src[i];
+		s1[s1_len + i] = s2[i];
 		i++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	s1[s1_len + i] = '\0';
+	return (s1);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-//     char s1[] = "12345";
-//     char s2[] = "6789";
-//     ft_strcat(s2, s1);
-//     printf("%s\n", s2);
-// }
-
