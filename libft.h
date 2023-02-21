@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:24:55 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 12:56:26 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/21 11:40:25 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
-int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);

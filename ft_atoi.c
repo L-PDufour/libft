@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:51:42 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 15:18:07 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/21 08:26:02 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-

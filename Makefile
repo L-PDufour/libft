@@ -17,7 +17,6 @@ SRC = ft_atoi.c \
 	ft_memset.c \
 	ft_strcat.c \
 	ft_strchr.c \
-	ft_strcmp.c \
 	ft_strdup.c \
 	ft_strjoin.c \
 	ft_strlcat.c \

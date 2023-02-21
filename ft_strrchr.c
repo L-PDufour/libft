@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:03:59 by leon              #+#    #+#             */
-/*   Updated: 2023/02/20 14:39:30 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/21 11:11:52 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*temp;
+	int	i;
 
-	temp = NULL;
-	while (*s != '\0')
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
 	{
-		if (*s == c)
-		{
-			temp = (char *)s;
-		}
-		s++;
+		if (s[i] == (unsigned char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	return (temp);
+	return (0);
 }
