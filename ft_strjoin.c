@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:42:34 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 13:26:53 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:30:48 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,27 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
+	int		i;
+	int		j;
 
-	str = malloc(sizeof(ft_strlen(s1) + ft_strlen(s2)));
-	if (str)
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		str = ft_strdup(s1);
-		str = ft_strcat(str, s2);
+		str[i] = s1[i];
+		i++;
 	}
+	while (s2[j] != '\0')
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
 	return (str);
 }
