@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:42:51 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/23 08:53:17 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:11:33 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 
 	if (!s)
-		return;
+		return ;
 	c = s;
 	i = 0;
 	while (i < n)

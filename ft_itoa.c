@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 08:34:13 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/23 11:29:06 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 14:44:57 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-// #include <stdio.h>
-// #include <limits.h>
-// int main()
-// {
-// 	char *a;
-// 	a = ft_itoa(INT_MIN);
-// 	printf("%s", a);
-// }
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+	char *a;
+	a = ft_itoa(0000001);
+	printf("%s", a);
+}
 
 // char	*ft_itoa(int n)
 // {
