@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:49:00 by leon              #+#    #+#             */
-/*   Updated: 2023/02/20 14:39:22 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:11:01 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 	char	*ptr;
 
+	if (!s)
+		return (NULL);
 	ptr = NULL;
 	len = 0;
 	while (s[len])

@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:28:03 by leon              #+#    #+#             */
-/*   Updated: 2023/02/21 15:14:48 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:14:36 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*dest;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	i = ft_strlen(s);
 	if (start > i)
 		start = i;

@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:51:42 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/21 13:17:43 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 10:29:46 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_atoi(const char *str)
 
 	result = 0;
 	sign = 1;
+	if (!str || ft_strlen(str) == 0)
+		return (0);
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == 43)

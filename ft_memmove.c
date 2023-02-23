@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:08:05 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/21 08:24:12 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 08:57:22 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const char	*s;
 	char		*d;
 
-	if (!dst && !src)
+	if (!dst || !src)
 		return (NULL);
 	s = (const char *) src;
 	d = (char *)dst;

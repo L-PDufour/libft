@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:57:15 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 14:21:44 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:03:05 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memset(void *b, int c, size_t len)
 	unsigned char	*a;
 	size_t			i;
 
+	if (!b)
+		return (NULL);
 	i = 0;
 	a = b;
 	while (i < len)

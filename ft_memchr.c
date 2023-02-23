@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:46:21 by leon              #+#    #+#             */
-/*   Updated: 2023/02/21 13:48:28 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 08:59:31 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*str;
 	unsigned char	ch;
 
+	if (!s)
+		return (NULL);
 	ch = (unsigned char) c;
 	str = (unsigned char *) s;
 	i = 0;

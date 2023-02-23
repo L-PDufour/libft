@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:22:44 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 14:34:53 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 08:57:16 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	const char	*s;
 	char		*d;
 
-	if (!dst && !src)
+	if (!dst || !src)
 		return (NULL);
 	s = (char *)src;
 	d = (char *)dst;

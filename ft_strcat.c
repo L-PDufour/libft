@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:23:35 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/20 14:28:49 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:09:24 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strcat(char *s1, const char *s2)
 	size_t	s1_len;
 	size_t	i;
 
+	if (!s1 || !s2)
+		return (NULL);
 	s1_len = ft_strlen(s1);
 	i = 0;
 	while (s2[i] != '\0')
