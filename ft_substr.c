@@ -6,7 +6,7 @@
 /*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:28:03 by leon              #+#    #+#             */
-/*   Updated: 2023/02/24 08:57:27 by leon             ###   ########.fr       */
+/*   Updated: 2023/02/25 20:36:32 by leon             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dest;
 
-	dest = ft_calloc(sizeof(char), (len) + 1);
+	dest = ft_calloc(sizeof(char), (len));
 	if (!dest)
 		return (NULL);
     if (!s)
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
     if (ft_strlen(s + start) < len)
 		len = ft_strlen(s + start);
-    ft_strlcpy(dest, s + start, len + 1);
+    ft_strlcpy(dest, s + start, len + 1 );
 	return (dest);
 }
 
