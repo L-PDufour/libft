@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:39:59 by leon              #+#    #+#             */
-/*   Updated: 2023/02/20 13:27:09 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/02/28 09:52:44 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!big)
+		return (NULL);
 	if (*little == '\0' || little == NULL)
 		return ((char *)big);
 	while (big[i] != '\0' && i < len)

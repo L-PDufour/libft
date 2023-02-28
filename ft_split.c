@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leon <leon@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:41:13 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/26 20:13:58 by leon             ###   ########.fr       */
+/*   Updated: 2023/02/28 15:13:57 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memcpy.c"
-#include "ft_strchr.c"
-#include "ft_substr.c"
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 static int	ft_countwords(char const *s, char c)
 {
@@ -48,6 +43,15 @@ static size_t	ft_wordlen(const char *s, char c)
 	return (len);
 }
 
+static void	ft_free(char **array, int i)
+{
+	while (i--)
+	{
+		free(array[i]);
+	}
+	free(array);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
@@ -57,7 +61,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array = ft_calloc(sizeof(char **), (ft_countwords(s, c) + 1));
+	array = ft_calloc(sizeof(char *), (ft_countwords(s, c)));
 	if (!array)
 		return (NULL);
 	i = -1;
@@ -65,22 +69,42 @@ char	**ft_split(char const *s, char c)
 	while (++i < ft_countwords(s, c))
 	{
 		k = 0;
-		array[i] = ft_calloc(sizeof(char), (ft_wordlen(&s[j], c)));
-		if (!array[i])
-			array[i] = (NULL);
 		while (s[j] == c)
 			j++;
+		array[i] = ft_calloc(sizeof(char), (ft_wordlen(&s[j], c)));
+		if (!array[i])
+			ft_free(array, i);
 		while (s[j] != c && s[j])
 			array[i][k++] = s[j++];
 	}
 	return (array);
 }
 
-int	main(void)
-{
-	printf("====ft_split====\n");
-	char **a = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-	for (int i = 0; i < ft_countwords("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse",' '); i++)
-		printf("%s\n", a[i]);
-	return (0);
-}
+// void	ft_print_result(char const *s)
+// {
+// 	int		len;
+
+// 	len = 0;
+// 	while (s[len])
+// 		len++;
+// 	write(1, s, len);
+// }
+
+// int main()
+// {
+// 	char	**tabstr;
+// 	int		i;
+
+// 	i = 0;
+// 			if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// }
+// }

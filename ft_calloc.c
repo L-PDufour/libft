@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 11:12:22 by leon              #+#    #+#             */
-/*   Updated: 2023/02/23 08:59:01 by ldufour          ###   ########.fr       */
+/*   Created: 2023/02/28 08:33:19 by ldufour           #+#    #+#             */
+/*   Updated: 2023/02/28 13:55:47 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,10 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*ptr;
-	size_t	i;
 
-	i = 0;
-	ptr = malloc(nmemb * size);
+	ptr = (char *)malloc(nmemb * size);
 	if (!ptr)
-		return (NULL);
-	if (ptr == 0)
-		return (ptr);
-	while (i < nmemb * size)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+		return (0);
+	ft_bzero(ptr, (nmemb * size));
 	return (ptr);
 }

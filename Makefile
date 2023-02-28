@@ -24,6 +24,7 @@ SRC = ft_atoi.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
+	ft_split.c \
 	ft_strcat.c \
 	ft_strchr.c \
 	ft_strdup.c \
@@ -56,6 +57,10 @@ OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 $(NAME) : $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
