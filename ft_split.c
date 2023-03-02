@@ -6,50 +6,61 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:41:13 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/28 15:13:57 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/02 17:41:28 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include "ft_calloc.c"
+// #include "ft_bzero.c"
+// #include "ft_substr.c"
+// #include "ft_strdup.c"
+// #include "ft_strlen.c"
+// #include "ft_strlcpy.c"
 
-static int	ft_countwords(char const *s, char c)
+static int	width(char const *s, char c)
 {
-	int	words;
+	int	count;
+
+	if (!s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			count++;
+			while (*s != c && *s)
+				s++;
+		}
+	}
+	return (count);
+}
+
+static char	**freearray(char **array, int width)
+{
 	int	i;
 
-	words = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (((i == 0) && s[i] != c) || (s[i - 1] == c && s[i] != c))
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-static size_t	ft_wordlen(const char *s, char c)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] != c && s[i])
-		i++;
-	len++;
-	return (len);
-}
-
-static void	ft_free(char **array, int i)
-{
-	while (i--)
-	{
+	i = -1;
+	while (++i < width && array[i] != 0)
 		free(array[i]);
-	}
 	free(array);
+	return (0);
+}
+
+static int	worddup(char *s, char c, int i)
+{
+	int	j;
+
+	j = 0;
+	while (s[i] != '\0' && s[i] == c)
+		i++;
+	while (s[i + j] != '\0' && s[i + j] != c)
+		j++;
+	return (j);
 }
 
 char	**ft_split(char const *s, char c)
@@ -61,50 +72,43 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array = ft_calloc(sizeof(char *), (ft_countwords(s, c)));
+	array = ft_calloc(sizeof(char *), width(s, c) + 1);
 	if (!array)
 		return (NULL);
 	i = -1;
 	j = 0;
-	while (++i < ft_countwords(s, c))
+	k = 0;
+	while (++i < width(s, c))
 	{
 		k = 0;
-		while (s[j] == c)
-			j++;
-		array[i] = ft_calloc(sizeof(char), (ft_wordlen(&s[j], c)));
+		array[i] = ft_calloc(sizeof(char), worddup((char *)s, c, j) + 1);
 		if (!array[i])
-			ft_free(array, i);
-		while (s[j] != c && s[j])
+			return (freearray(array, i));
+		while (s[j] == c && s[j] != '\0')
+			j++;
+		while (s[j] != c && s[j] != '\0')
 			array[i][k++] = s[j++];
 	}
 	return (array);
 }
 
-// void	ft_print_result(char const *s)
+// int main(void) 
 // {
-// 	int		len;
+// 	char **array;
+//     char str[] = "this is a test";
+//     char delimiter = ' ';
+//     int i = 0;
+// 	printf("%d\n", i);
+//     array = ft_split(0, 0);
+// 	printf("%s\n", array[0]);
+// 	// printf("%s\n", array[1]);
+// 	// printf("%s\n", array[2]);
+// 	// printf("%s\n", array[3]);
 
-// 	len = 0;
-// 	while (s[len])
-// 		len++;
-// 	write(1, s, len);
-// }
-
-// int main()
-// {
-// 	char	**tabstr;
-// 	int		i;
-
-// 	i = 0;
-// 			if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// }
+// 	// while (i < 3)
+// 	// {
+// 	// 	printf("%s\n", array[i]);
+// 	// 	i++;
+// 	// }
+//     return 0;
 // }

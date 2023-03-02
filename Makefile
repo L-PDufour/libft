@@ -58,10 +58,6 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
-
 $(NAME) : $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
 
