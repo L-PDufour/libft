@@ -6,7 +6,7 @@
 /*   By: ldufour <ldufour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:34:33 by ldufour           #+#    #+#             */
-/*   Updated: 2023/02/28 15:11:32 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/05 18:13:25 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+
 }
