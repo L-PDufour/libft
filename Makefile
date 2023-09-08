@@ -2,7 +2,11 @@ NAME = libft.a
 
 RM = rm -f
 
-CFLAGS =  -Wall -Wextra -Werror 
+CFLAGS =  -Wall -Wextra -Werror -g
+
+CC = gcc
+
+GNL = get_next_line/
 
 .PHONY: all clean fclean re bonus
 
@@ -41,6 +45,8 @@ SRC = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	get_next_line/get_next_line.c \
+	get_next_line/get_next_line_utils.c \
 
 SRC_BONUS = ft_lstnew.c \
 	ft_lstadd_back.c \
@@ -54,19 +60,25 @@ SRC_BONUS = ft_lstnew.c \
 
 OBJ = $(SRC:.c=.o)
 
+GNL_OBJS = $(GNL)get_next_line.o \
+	$(GNL)get_next_line_utils.o \
+
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-all: $(NAME)
+all: gnl $(NAME)
+
+gnl:
+	@$(MAKE) -C $(GNL)
 
 $(NAME) : $(OBJ)
-	@ar -rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ) $(GNL_OBJS)
 
 bonus: $(OBJ_BONUS)
-	@ar -rcs $(NAME) $(OBJ_BONUS)
+	@ar rcs $(NAME) $(OBJ_BONUS)
 
 clean:
 	@$(RM) $(OBJ) $(OBJ_BONUS)
-
+	@$(MAKE) -C $(GNL) fclean
 fclean: clean
 	@$(RM) $(NAME) 
 
