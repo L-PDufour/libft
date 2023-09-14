@@ -11,13 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
-// #include "ft_calloc.c"
-// #include "ft_bzero.c"
-// #include "ft_substr.c"
-// #include "ft_strdup.c"
-// #include "ft_strlen.c"
-// #include "ft_strlcpy.c"
 
 static int	width(char const *s, char c)
 {
